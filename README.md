@@ -1,5 +1,8 @@
-# filesystem
+## filesystem
 
+
+
+```
 currently supported commands
 ---------------------------------------------------------------------------
 | cat    | makes a file if doesnt exist reading from stdin , or prints it |
@@ -10,8 +13,11 @@ currently supported commands
 | all    | prints all the files and folders                               |
 | exit   | duh                                                            |
 ---------------------------------------------------------------------------
+```
 
-# usage
+
+
+### usage
 if any arg is given to binary it will run in interative mode , else no prompt
 ``` 
 source test.sh
@@ -27,12 +33,14 @@ to run the interative mode
 ./bin  1
 ```
 
-# build 
+### build 
 ```
 make gen
 ```
 
-# deps
+### deps
+```
 gcc & xxd 
+```
 
 
