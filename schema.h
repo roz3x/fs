@@ -1,42 +1,42 @@
 
-#include <stdint.h>
-
-typedef uint64_t u64;
-typedef uint8_t u8;
+char _jeff[0xff];
+char _pwd[0xff];
+int __i;
+enum { FYL , DIR };
 
 #define P(...) fprintf(stdout,__VA_ARGS__);fprintf(stdout,"\n")
+#define S(...) fscanf(stdin,__VA_ARGS__);
 #define L(...) fprintf(stderr,"[LOG] ");fprintf(stderr,__VA_ARGS__);fprintf(stderr,"\n")
 
-enum { t_file , t_dir , t_link } ;
-
 #pragma pack(1)
-typedef struct {
-	u8    i_type;
-	u8    i_id;
-	u64   i_name_size;
-	char* i_name;
+struct inode {
+	int id;
+	char name[0x2f];
 	union {
 		struct {
-			u64  i_end;
-			u64  i_off;
-			u8   i_parent_id;
+			uint64_t start;
+			uint64_t end;
 		};
 		struct {
-			u8   i_child_num;
-			u8*  i_child_ids;
+			uint8_t num;	
+			struct inode *inodes;
+			struct inode *parent;
+			uint8_t alloted;
 		};
 	};
-} inode ;
+	int type;
+}*__r;
 
-#pragma pack(1)
-typedef struct {
-	u8    size;
-	char* pass;
-	char* nonce;
-} secret ;
+struct inode root = {
+	.name = "root",
+	.id   = 0,
+	.type = DIR,
+	.num  = 0,
+	.parent = &root,
+};
 
 struct {
- /*	secret sec;	 */
-	u64    num;
-	inode* inodes;
-} fs;
+	int   count;
+	uint8_t buf[0xffff];
+	int   ubound;
+} fs =  {0,{},0};
