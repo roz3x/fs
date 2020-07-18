@@ -37,6 +37,7 @@ to run the interative mode
 ```
 make gen
 ```
+or just checkout logs on github itself [rickRoll](https://github.com/roz3x/fs/runs/885605575?check_suite_focus=true)
 
 ### deps
 ```
