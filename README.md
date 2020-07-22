@@ -8,7 +8,7 @@ currently supported commands
 | cat    | makes a file if doesnt exist reading from stdin , or prints it |
 | mkdir  | makes a directory                                              |
 | ls     | just like ls                                                   |
-| cd     | just like cd                                                   |
+| cd     | just like cd  ( cd .. for parent and ~ for root )              | 
 | find   | finds the name in all the tree onwards from pwd                |
 | all    | prints all the files and folders                               |
 | exit   | duh                                                            |
